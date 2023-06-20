@@ -89,7 +89,7 @@
 		status = "disabled";
 	};
 
-	sdmmc3: sdhci@3440000 {
+	sdmmc3: sdhci@3440000 { /* Used for SD of EAC-2000 */
 		compatible = "nvidia,tegra194-sdhci", "nvidia,tegra186-sdhci";
 		reg = <0x0 0x3440000 0x0 0x00020000>;
 		interrupts = < 0 TEGRA194_IRQ_SDMMC3 0x04>;

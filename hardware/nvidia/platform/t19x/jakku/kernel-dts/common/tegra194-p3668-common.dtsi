@@ -28,7 +28,9 @@
 / {
 	nvidia,fastboot-usb-vid = <0x0955>;
 	nvidia,fastboot-usb-pid = <0xee1e>;
-	model = "NVIDIA Jetson Xavier NX Developer Kit";
+	//model = "NVIDIA Jetson Xavier NX Developer Kit";
+	model = "NVIDIA Jetson Xavier NX EAC-2000";
+	nsdk_version = "v0.0.0.1";
 
 	chosen {
 		bootargs ="console=ttyTCU0,115200";
@@ -317,6 +319,18 @@
 		status = "okay";
 	};
 
+	sdhci_sd3: sdhci@3440000 {
+		mmc-ocr-mask = <0x3>;
+		cd-inverted;
+		cd-gpios = <&tegra_main_gpio TEGRA194_MAIN_GPIO(R, 0) 0>; /* Change CD pin for EAC-2000 */
+		nvidia,cd-wakeup-capable;
+		mmc-ocr-mask = <3>;
+		cd-inverted;
+		uhs-mask = <0x0>;
+		vmmc-supply = <&p3668_vdd_sdmmc1_sw>;
+		status = "okay";
+	};
+
 	sdhci_sd: sdhci@3400000 {
 		mmc-ocr-mask = <0x0>;
 		cd-inverted;
@@ -358,6 +372,7 @@
 			label = "pex_refclk_sel_high";
 			status = "disabled";
 		};
+/* No Use
 		w-disable1 {
 			gpio-hog;
 			output-high;
@@ -380,7 +395,7 @@
 			gpios = <TEGRA194_AON_GPIO(CC, 1) GPIO_ACTIVE_HIGH>;
 			label = "suspend-led-gpio";
 			status = "okay";
-		};
+		};*/
 	};
 #endif
 
@@ -558,10 +573,10 @@
 
 	leds {
 		compatible = "gpio-leds";
-		status = "okay";
+		status = "disabled"; /* disable by EAC-2000 */
 		pwr {
-			gpios = <&tegra_aon_gpio TEGRA194_AON_GPIO(CC, 1) GPIO_ACTIVE_HIGH>;
-			default-state = "on";
+			//gpios = <&tegra_aon_gpio TEGRA194_AON_GPIO(CC, 1) GPIO_ACTIVE_HIGH>;
+			//default-state = "on";
 		};
 	};
 
