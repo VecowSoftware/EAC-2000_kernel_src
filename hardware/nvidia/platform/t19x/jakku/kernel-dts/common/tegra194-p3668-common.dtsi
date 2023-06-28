@@ -28,9 +28,7 @@
 / {
 	nvidia,fastboot-usb-vid = <0x0955>;
 	nvidia,fastboot-usb-pid = <0xee1e>;
-	//model = "NVIDIA Jetson Xavier NX Developer Kit";
-	model = "NVIDIA Jetson Xavier NX EAC-2000";
-	nsdk_version = "v0.0.0.1";
+	model = "NVIDIA Jetson Xavier NX Developer Kit";
 
 	chosen {
 		bootargs ="console=ttyTCU0,115200";
