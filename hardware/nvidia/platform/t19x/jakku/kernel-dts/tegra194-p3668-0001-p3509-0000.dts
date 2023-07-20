@@ -16,6 +16,7 @@
 /dts-v1/;
 #include "common/tegra194-p3668-common.dtsi"
 #include "common/tegra194-p3509-0000-a00.dtsi"
+#include "common/tegra194-p3668-0001-p3509-0000-nilecam21_two_lane.dtsi"
 
 / {
 	nvidia,dtsfilename = __FILE__;
@@ -24,7 +25,7 @@
 	compatible = "nvidia,p3449-0000+p3668-0001", "nvidia,p3509-0000+p3668-0001", "nvidia,tegra194";
 
 	model = "NVIDIA Jetson Xavier NX EAC-2000";
-	nsdk_version = "v0.0.0.7";
+	nsdk_version = "v1.1.0.0";
 
 	sdhci@3400000 {
 		status = "disabled";
